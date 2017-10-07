@@ -1,13 +1,14 @@
 package dev.tilegame.states;
 
 import dev.tilegame.Game;
+import dev.tilegame.Handler;
 
 import java.awt.*;
 
 public class MenuState extends State {
 
-    public MenuState(Game game) {
-        super(game);
+    public MenuState(Handler handler) {
+        super(handler);
     }
 
     @Override

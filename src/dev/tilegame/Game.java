@@ -32,6 +32,12 @@ public class Game implements Runnable{
     //Input
     private KeyManager keyManager;
 
+    //Camera
+    private GameCamera gameCamera;
+
+    //Handler
+    private Handler handler;
+
 
     //Game constructor
     public Game(String title, int width, int height) {
@@ -47,9 +53,12 @@ public class Game implements Runnable{
         display.getFrame().addKeyListener(keyManager);
         Assets.init();
 
-        gameState = new GameState(this);
-        menuState = new MenuState(this);
-        settingsState = new SettingsState(this);
+        gameCamera = new GameCamera(this, 0, 0);
+        handler = new Handler(this);
+
+        gameState = new GameState(handler);
+        menuState = new MenuState(handler);
+        settingsState = new SettingsState(handler);
         State.setState(gameState);
 
 
@@ -116,6 +125,26 @@ public class Game implements Runnable{
 
     public KeyManager getKeyManager(){
         return keyManager;
+    }
+
+    public GameCamera getGameCamera(){
+        return gameCamera;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 
     //starts thread loop & run
