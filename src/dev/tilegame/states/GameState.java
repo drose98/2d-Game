@@ -2,6 +2,7 @@ package dev.tilegame.states;
 import dev.tilegame.Game;
 import dev.tilegame.Handler;
 import dev.tilegame.entity.creatures.Player;
+import dev.tilegame.entity.statics.Tree;
 import dev.tilegame.gfx.Assets;
 import dev.tilegame.worlds.World;
 
@@ -24,13 +25,11 @@ public class GameState extends State {
     public void tick() {
         world.tick();
         player.tick();
-
     }
 
     @Override
     public void render(Graphics g) {
         world.render(g);
         player.render(g);
-
     }
 }
